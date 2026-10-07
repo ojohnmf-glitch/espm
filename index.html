@@ -103,7 +103,8 @@ header,section,footer{position:relative;z-index:1}
 .hero{padding-block:clamp(72px,10vw,128px) 0;text-align:center;position:relative;isolation:isolate}
 .hero .halo{position:absolute;left:50%;top:clamp(-40px,-3vw,-10px);transform:translateX(-50%);width:min(118vw,1240px);aspect-ratio:1;border-radius:50%;z-index:-2;pointer-events:none;
   background:conic-gradient(from 200deg,var(--peach),var(--rose),var(--lilac),var(--sky),var(--mint),var(--peach));filter:blur(70px);opacity:.55}
-.hero .orb{position:absolute;left:50%;top:0;transform:translateX(-50%);width:min(92vw,920px);aspect-ratio:1;border-radius:50%;background:var(--surface);z-index:-1;pointer-events:none;box-shadow:0 0 0 1px var(--line),0 60px 140px -60px rgba(35,26,46,.35)}
+.hero .orb{position:absolute;left:50%;top:clamp(-60px,-5vw,-20px);transform:translateX(-50%);width:min(108vw,1080px);aspect-ratio:1;border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,var(--surface) 0 52%,color-mix(in srgb,var(--surface) 70%,transparent) 62%,color-mix(in srgb,var(--surface) 25%,transparent) 71%,transparent 80%)}
 .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 10px}
 .hero .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--grad)}
 .hero h1{font-size:clamp(46px,7.4vw,92px);line-height:1;margin-top:26px}
