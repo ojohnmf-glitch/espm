@@ -79,14 +79,15 @@ img{max-width:100%;display:block}
   linear-gradient(180deg,color-mix(in srgb,var(--sky) 14%,var(--bg)) 0%,color-mix(in srgb,var(--lilac) 34%,var(--bg)) 100%)}
 header,section,footer{position:relative;z-index:1}
 
-/* wordmark recreated from the logo: rounded lowercase + pastel gradient */
-.wordmark{font-family:var(--font-display);font-weight:700;letter-spacing:-.035em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding-bottom:.08em}
-.wordmark.dark{filter:saturate(1.15)}
+/* logo: the lume wordmark as an SVG file (375x138, transparent background) */
+.logo{display:inline-block;height:var(--logo-h,28px);width:auto;vertical-align:middle}
+.logo.inline{height:.95em;vertical-align:-.12em;margin-inline:.05em}
 
 /* floating pill nav */
 .nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:20;padding-inline:clamp(12px,3vw,32px)}
 .nav .pill{max-width:1120px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;height:56px;padding:0 8px 0 22px;border-radius:999px;background:color-mix(in srgb,var(--surface) 86%,transparent);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);box-shadow:0 10px 32px -14px rgba(35,26,46,.28),0 0 0 1px var(--line)}
-.nav .wordmark{font-size:30px}
+.nav .logo{--logo-h:32px;display:flex;align-items:center}
+.nav .logo img{height:100%;width:auto;display:block}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;font-size:14px}
 .nav ul a{color:var(--ink-2)}
 .nav ul a:hover{color:var(--ink)}
@@ -171,7 +172,7 @@ section.tinted{background:color-mix(in srgb,var(--surface-2) 55%,transparent)}
 .card.feature{grid-column:span 3;background:var(--ink);color:var(--bg);display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:clamp(28px,4vw,56px)}
 .card.feature h3{font-size:clamp(30px,3.6vw,44px);color:inherit;margin-top:0}
 .card.feature p{color:color-mix(in srgb,var(--bg) 72%,transparent);font-size:17px}
-.card.feature .wordmark{font-size:1em}
+
 .card.feature .thread{background:color-mix(in srgb,var(--bg) 8%,transparent);padding:18px}
 .card.feature .msg.lume{background:var(--bg);color:var(--ink);border-color:transparent}
 .card.feature .msg.her{background:color-mix(in srgb,var(--peach) 30%,transparent);color:var(--bg)}
@@ -273,7 +274,7 @@ section.tinted{background:color-mix(in srgb,var(--surface-2) 55%,transparent)}
 .final .box{position:relative;border-radius:36px;overflow:hidden;background:var(--ink);color:var(--bg);text-align:center;padding:clamp(56px,8vw,104px) clamp(20px,5vw,64px)}
 .final .box::before{content:"";position:absolute;inset:-40% -10% auto;height:120%;background:var(--grad);filter:blur(90px);opacity:.42}
 .final .box>*{position:relative}
-.final .wordmark{font-size:clamp(72px,12vw,150px)}
+.final .logo{--logo-h:clamp(56px,9vw,110px);display:block;margin-inline:auto}
 .final h2{font-size:clamp(30px,4vw,50px);margin-top:8px;color:inherit}
 .final p{color:color-mix(in srgb,var(--bg) 70%,transparent);font-size:18px;max-width:560px;margin:18px auto 0}
 .final .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:32px}
@@ -283,7 +284,7 @@ section.tinted{background:color-mix(in srgb,var(--surface-2) 55%,transparent)}
 
 footer.site{padding-block:28px 48px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
 footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-footer.site .wordmark{font-size:22px}
+footer.site .logo{--logo-h:26px}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -294,7 +295,7 @@ footer.site .wordmark{font-size:22px}
 
 <nav class="nav" aria-label="Principal">
   <div class="pill">
-    <a href="#topo" class="wordmark" aria-label="lume">lume</a>
+    <a href="#topo" class="logo" aria-label="lume, início"><img src="assets/lume-logo.svg" alt="lume" width="375" height="138"></a>
     <ul>
       <li><a href="#produto">Como funciona</a></li>
       <li><a href="#companheira">Escolha a companheira</a></li>
@@ -357,7 +358,7 @@ footer.site .wordmark{font-size:22px}
     <article class="card feature">
       <div>
         <h3>Ela chama. A conversa começa do lado de lá.</h3>
-        <p style="margin-top:14px">Quando o dia esvazia, a <span class="wordmark dark">lume</span> aparece na tela com um “boa tarde, Dona Lúcia” e um assunto pronto: a feira, o neto, o remédio das seis. Conversa por voz, sem digitar, sem menu.</p>
+        <p style="margin-top:14px">Quando o dia esvazia, a <img class="logo inline" src="assets/lume-logo.svg" alt="lume" width="375" height="138"> aparece na tela com um “boa tarde, Dona Lúcia” e um assunto pronto: a feira, o neto, o remédio das seis. Conversa por voz, sem digitar, sem menu.</p>
       </div>
       <div class="thread" aria-label="Exemplo de conversa">
         <div class="meta">chamada de vídeo · terça, 17:32</div>
@@ -573,7 +574,7 @@ footer.site .wordmark{font-size:22px}
 
 <section class="final wrap">
   <div class="box">
-    <div class="wordmark dark">lume</div>
+    <img class="logo" src="assets/lume-logo.svg" alt="lume" width="375" height="138">
     <h2>Uma boa conversa todo dia para quem mora só.</h2>
     <p>Comece o primeiro mês grátis. A gente instala no tablet dela e, no fim de tarde seguinte, a lume liga.</p>
     <div class="cta">
@@ -585,7 +586,7 @@ footer.site .wordmark{font-size:22px}
 
 <footer class="site">
   <div class="wrap">
-    <span class="wordmark">lume</span>
+    <img class="logo" src="assets/lume-logo.svg" alt="lume" width="375" height="138">
     <span>alguém com quem conversar de verdade · Projeto acadêmico ESPM · Gestão de Produtos</span>
   </div>
 </footer>
