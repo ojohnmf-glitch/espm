@@ -179,46 +179,10 @@ section.tinted{background:color-mix(in srgb,var(--surface-2) 55%,transparent)}
 @media (max-width:900px){.cards{grid-template-columns:1fr 1fr}.card.feature{grid-column:span 2;grid-template-columns:1fr}}
 @media (max-width:600px){.cards{grid-template-columns:1fr}.card.feature{grid-column:span 1}}
 
-/* studio: choose the companion's look and voice */
-.studio{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);margin-top:48px;align-items:start}
-.stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 90px)}
-.tablet{position:relative;border-radius:34px;padding:16px;background:var(--ink);box-shadow:var(--shadow)}
-.tablet .screen{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:var(--grad);max-width:100%}
-.tablet .screen::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 110%,rgba(20,14,26,.5),transparent 60%);pointer-events:none}
-.tablet svg{position:absolute;inset:0;width:100%;height:100%}
-.tablet .topbar{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.04em;color:rgba(35,26,46,.7);z-index:2}
-.tablet .greet{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;background:rgba(255,255,255,.94);color:#231A2E;border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:15px;line-height:1.4}
-.tablet .greet b{font-family:var(--font-display);display:block;font-size:12px;letter-spacing:.02em;margin-bottom:3px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:saturate(1.5) brightness(.8)}
-.tablet .home{width:44px;height:5px;border-radius:3px;background:rgba(255,255,255,.25);margin:12px auto 0}
-.stage .listen{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
-.stage .listen small{font-size:13px;color:var(--ink-3)}
-.wave{display:inline-flex;gap:3px;align-items:center;height:16px}
-.wave i{width:3px;height:6px;border-radius:2px;background:currentColor;opacity:.5}
-.btn.speaking .wave i{animation:wave .8s ease-in-out infinite}
-.btn.speaking .wave i:nth-child(2){animation-delay:.1s}.btn.speaking .wave i:nth-child(3){animation-delay:.2s}.btn.speaking .wave i:nth-child(4){animation-delay:.3s}
-@keyframes wave{0%,100%{height:6px}50%{height:16px}}
-
-.controls{display:grid;gap:22px}
-.controls fieldset{border:0;margin:0;padding:0;min-width:0}
-.controls legend{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;padding:0}
-.controls .row{display:flex;flex-wrap:wrap;gap:8px}
-.controls input[type=text]{font:inherit;font-size:17px;padding:12px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);width:100%;max-width:320px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
-.opt span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);font-size:14.5px;font-weight:600;color:var(--ink-2);cursor:pointer;transition:border-color .15s,color .15s,background .15s}
-.opt input:checked+span{border-color:var(--ink);color:var(--ink)}
-.opt input:focus-visible+span{outline:3px solid var(--lilac);outline-offset:2px}
-.opt.sw span{width:38px;height:38px;padding:0;border-radius:50%;background:var(--c);border:2px solid var(--surface);box-shadow:0 0 0 1.5px var(--line)}
-.opt.sw input:checked+span{box-shadow:0 0 0 2.5px var(--ink)}
-.opt.tone{flex:1 1 180px}
-.opt.tone span{display:flex;flex-direction:column;align-items:flex-start;gap:2px;border-radius:18px;padding:12px 14px;width:100%;height:100%}
-.opt.tone span small{font-weight:400;font-size:13px;color:var(--ink-3)}
-.opt.tone input:checked+span{background:color-mix(in srgb,var(--lilac) 18%,var(--surface))}
-.controls .name-chips{margin-top:8px}
-.controls .name-chips button{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer}
-.controls .name-chips button:hover{color:var(--ink);border-color:var(--ink)}
-.studio .foot{grid-column:1/-1;font-size:14px;color:var(--ink-3);text-align:center}
-@media (max-width:860px){.studio{grid-template-columns:1fr}.stage{position:static}}
+/* estúdio: a tela de configuração da companheira, em imagem */
+.estudio{margin:48px 0 0;display:grid;gap:18px;justify-items:center}
+.estudio img{width:100%;height:auto;border-radius:clamp(20px,3vw,32px);box-shadow:var(--shadow);border:1px solid var(--line);background:var(--surface)}
+.estudio figcaption{font-size:14px;color:var(--ink-3);text-align:center;max-width:62ch}
 
 /* pains → reliefs */
 .pairs{margin-top:48px;display:grid;gap:12px}
@@ -438,120 +402,13 @@ footer.site .wordmark{font-size:22px}
     <div class="head">
       <div class="kicker">Com rosto e voz</div>
       <h2>Escolha quem vai conversar com a sua mãe.</h2>
-      <p>Nome, aparência e jeito de falar são escolhidos junto com ela na instalação, para que a tela mostre alguém familiar. Experimente aqui.</p>
+      <p>Nome, aparência e jeito de falar são escolhidos junto com ela na instalação, para que a tela mostre alguém familiar. Tudo ajustável, a qualquer momento, pelo app da família.</p>
     </div>
 
-    <div class="studio">
-      <div class="stage">
-        <div class="tablet">
-          <div class="screen">
-            <div class="topbar" aria-hidden="true"><span>17:30</span><span>chamada de vídeo</span></div>
-            <svg id="face" viewBox="0 0 240 240" role="img" aria-label="Rosto da companheira escolhida">
-              <defs>
-                <radialGradient id="glow" cx="50%" cy="35%" r="60%"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-              </defs>
-              <circle cx="120" cy="120" r="120" fill="url(#glow)"/>
-              <g id="hairBack" fill="#4A3326">
-                <path id="hairLong" d="M48 128 C40 36 200 36 192 128 C198 180 188 220 178 240 L62 240 C52 220 42 180 48 128 Z"/>
-                <g id="hairCurly">
-                  <circle cx="60" cy="96" r="24"/><circle cx="76" cy="70" r="24"/><circle cx="100" cy="54" r="24"/><circle cx="128" cy="50" r="24"/><circle cx="156" cy="58" r="24"/><circle cx="176" cy="78" r="24"/><circle cx="184" cy="104" r="24"/>
-                  <circle cx="58" cy="128" r="22"/><circle cx="182" cy="130" r="22"/><circle cx="62" cy="158" r="20"/><circle cx="178" cy="158" r="20"/>
-                </g>
-              </g>
-              <path id="sweater" d="M58 240 C62 205 90 192 120 192 C150 192 178 205 182 240 Z" fill="#CDB8F8"/>
-              <path d="M104 178 L136 178 L134 200 C128 206 112 206 106 200 Z" fill="#E8B796" class="skin"/>
-              <circle cx="58" cy="126" r="12" fill="#E8B796" class="skin"/><circle cx="182" cy="126" r="12" fill="#E8B796" class="skin"/>
-              <ellipse cx="120" cy="124" rx="62" ry="72" fill="#E8B796" class="skin"/>
-              <g id="earrings" fill="#FFC59E" stroke="#B9872F" stroke-width="1.5"><circle cx="58" cy="142" r="4.5"/><circle cx="182" cy="142" r="4.5"/></g>
-              <circle cx="88" cy="142" r="10" fill="#FF9F85" opacity=".35"/><circle cx="152" cy="142" r="10" fill="#FF9F85" opacity=".35"/>
-              <g fill="none" stroke="#231A2E" stroke-width="3" stroke-linecap="round">
-                <path d="M86 104 Q97 97 108 103"/><path d="M132 103 Q143 97 154 104"/>
-                <path d="M96 152 Q120 172 144 152"/>
-              </g>
-              <circle cx="97" cy="118" r="5" fill="#231A2E"/><circle cx="143" cy="118" r="5" fill="#231A2E"/>
-              <circle cx="99" cy="116" r="1.6" fill="#fff"/><circle cx="145" cy="116" r="1.6" fill="#fff"/>
-              <g id="hairFront" fill="#4A3326">
-                <path id="hairCap" d="M58 122 C56 58 184 58 182 122 C176 92 150 78 120 80 C90 78 64 92 58 122 Z"/>
-                <circle id="hairBun" cx="120" cy="54" r="22"/>
-              </g>
-              <g id="glasses" fill="none" stroke="#231A2E" stroke-width="3">
-                <circle cx="97" cy="118" r="17"/><circle cx="143" cy="118" r="17"/><path d="M114 118 L126 118"/><path d="M80 116 L60 112"/><path d="M160 116 L180 112"/>
-              </g>
-            </svg>
-            <div class="greet"><b id="greetName">Clara</b><span id="greetText">Boa tarde, Dona Lúcia. Eu sou a Clara. Hoje eu só queria saber como foi o seu dia. Sem pressa.</span></div>
-          </div>
-          <div class="home" aria-hidden="true"></div>
-        </div>
-        <div class="listen">
-          <button class="btn btn-ghost" id="listenBtn" type="button"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Ouvir a voz</button>
-          <small id="voiceNote">Amostra com a voz em português do seu navegador.</small>
-        </div>
-      </div>
-
-      <form class="controls" id="studioForm" autocomplete="off">
-        <fieldset>
-          <legend>Nome</legend>
-          <input type="text" id="cName" name="name" value="Clara" maxlength="18" aria-label="Nome da companheira">
-          <div class="row name-chips">
-            <button type="button" data-name="Clara">Clara</button><button type="button" data-name="Helena">Helena</button><button type="button" data-name="Bia">Bia</button><button type="button" data-name="Antônio">Antônio</button><button type="button" data-name="Jorge">Jorge</button>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Tom de pele</legend>
-          <div class="row">
-            <label class="opt sw" style="--c:#F5D6C0"><input type="radio" name="skin" id="skin1" value="#F5D6C0"><span></span></label>
-            <label class="opt sw" style="--c:#E8B796"><input type="radio" name="skin" id="skin2" value="#E8B796" checked><span></span></label>
-            <label class="opt sw" style="--c:#C48A5E"><input type="radio" name="skin" id="skin3" value="#C48A5E"><span></span></label>
-            <label class="opt sw" style="--c:#8A5A3C"><input type="radio" name="skin" id="skin4" value="#8A5A3C"><span></span></label>
-            <label class="opt sw" style="--c:#5B3A2A"><input type="radio" name="skin" id="skin5" value="#5B3A2A"><span></span></label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Cabelo</legend>
-          <div class="row">
-            <label class="opt"><input type="radio" name="hair" id="hair1" value="curto" checked><span>Curto</span></label>
-            <label class="opt"><input type="radio" name="hair" id="hair2" value="longo"><span>Longo</span></label>
-            <label class="opt"><input type="radio" name="hair" id="hair3" value="cacheado"><span>Cacheado</span></label>
-            <label class="opt"><input type="radio" name="hair" id="hair4" value="coque"><span>Coque</span></label>
-          </div>
-          <div class="row" style="margin-top:10px">
-            <label class="opt sw" style="--c:#1E1A1C"><input type="radio" name="hairColor" id="hc1" value="#1E1A1C"><span></span></label>
-            <label class="opt sw" style="--c:#4A3326"><input type="radio" name="hairColor" id="hc2" value="#4A3326" checked><span></span></label>
-            <label class="opt sw" style="--c:#B5542E"><input type="radio" name="hairColor" id="hc3" value="#B5542E"><span></span></label>
-            <label class="opt sw" style="--c:#C9C2BD"><input type="radio" name="hairColor" id="hc4" value="#C9C2BD"><span></span></label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Detalhes</legend>
-          <div class="row">
-            <label class="opt"><input type="checkbox" name="glasses" id="cGlasses"><span>Óculos</span></label>
-            <label class="opt"><input type="checkbox" name="earrings" id="cEarrings" checked><span>Brincos</span></label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Jeito de falar</legend>
-          <div class="row">
-            <label class="opt tone"><input type="radio" name="tone" id="tone1" value="calma" checked><span>Calma<small>Fala devagar e espera a resposta.</small></span></label>
-            <label class="opt tone"><input type="radio" name="tone" id="tone2" value="animada"><span>Animada<small>Puxa assunto e ri fácil.</small></span></label>
-            <label class="opt tone"><input type="radio" name="tone" id="tone3" value="carinhosa"><span>Carinhosa<small>Pergunta do dia e chama de “a senhora”.</small></span></label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Ritmo da voz</legend>
-          <div class="row">
-            <label class="opt"><input type="radio" name="pace" id="pace1" value="devagar"><span>Mais devagar</span></label>
-            <label class="opt"><input type="radio" name="pace" id="pace2" value="normal" checked><span>Normal</span></label>
-          </div>
-        </fieldset>
-      </form>
-
-      <p class="foot">Sua mãe e você sempre sabem que é uma companheira virtual. Escolher o rosto e a voz é para ela se sentir à vontade, não para enganar ninguém.</p>
-    </div>
+    <figure class="estudio">
+      <img src="assets/estudio.webp" alt="Tela de configuração da companheira: abas Aparência, Voz e fala, Personalidade e Avançado; controles de tom de pele, cor dos olhos, comprimento, textura e cor do cabelo, tom de voz, estilo e velocidade da fala, expressão e idioma; à direita, a pré-visualização de uma mulher de cabelos ondulados sorrindo, com a mensagem “Oi! É assim que estou agora. O que acha? Podemos ajustar qualquer detalhe.”" width="1427" height="811" loading="lazy">
+      <figcaption>Sua mãe e você sempre sabem que é uma companheira virtual. Escolher o rosto e a voz é para ela se sentir à vontade, não para enganar ninguém.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -747,79 +604,6 @@ footer.site .wordmark{font-size:22px}
   window.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(update)},{passive:true});
   window.addEventListener('resize',update);
   update();
-})();
-
-/* Estúdio da companheira: aparência, nome e voz. */
-(function(){
-  var $=function(s){return document.querySelector(s)};
-  var form=$('#studioForm'); if(!form) return;
-  var state={name:'Clara',skin:'#E8B796',hair:'curto',hairColor:'#4A3326',glasses:false,earrings:true,tone:'calma',pace:'normal'};
-  try{var saved=localStorage.getItem('lume-companheira');if(saved)Object.assign(state,JSON.parse(saved))}catch(e){}
-
-  var greetings={
-    calma:function(n,a){return 'Boa tarde, Dona Lúcia. Eu sou '+a+' '+n+'. Hoje eu só queria saber como foi o seu dia. Sem pressa.'},
-    animada:function(n,a){return 'Dona Lúcia! Aqui é '+a+' '+n+'. Vi que a novela ontem acabou em suspense. Me conta tudo!'},
-    carinhosa:function(n,a){return 'Boa tarde, Dona Lúcia. É '+a+' '+n+'. A senhora dormiu bem? Hoje eu queria ouvir a história do bolo da Marta.'}
-  };
-  function article(n){return /[oO]$/.test(n.trim())?'o':'a'}
-  function show(id,on){var el=$('#'+id);if(el)el.style.display=on?'':'none'}
-
-  function render(){
-    var n=(state.name||'').trim()||'Clara';
-    document.querySelectorAll('#face .skin').forEach(function(p){p.setAttribute('fill',state.skin)});
-    $('#hairBack').setAttribute('fill',state.hairColor);
-    $('#hairFront').setAttribute('fill',state.hairColor);
-    show('hairLong',state.hair==='longo');
-    show('hairCurly',state.hair==='cacheado');
-    show('hairBun',state.hair==='coque');
-    show('hairCap',state.hair!=='cacheado');
-    show('glasses',!!state.glasses);
-    show('earrings',!!state.earrings);
-    $('#greetName').textContent=n;
-    $('#greetText').textContent=(greetings[state.tone]||greetings.calma)(n,article(n));
-    try{localStorage.setItem('lume-companheira',JSON.stringify(state))}catch(e){}
-  }
-  function syncForm(){
-    $('#cName').value=state.name;
-    ['skin','hair','hairColor','tone','pace'].forEach(function(k){
-      var el=form.querySelector('input[name="'+k+'"][value="'+state[k]+'"]');if(el)el.checked=true;
-    });
-    $('#cGlasses').checked=!!state.glasses;$('#cEarrings').checked=!!state.earrings;
-  }
-  form.addEventListener('input',function(e){
-    var t=e.target;if(!t.name)return;
-    if(t.type==='checkbox')state[t.name]=t.checked;else state[t.name]=t.value;
-    render();
-  });
-  form.addEventListener('submit',function(e){e.preventDefault()});
-  document.querySelectorAll('.name-chips button').forEach(function(b){
-    b.addEventListener('click',function(){state.name=b.dataset.name;$('#cName').value=state.name;render()});
-  });
-
-  /* voz de amostra com a síntese de fala do navegador */
-  var btn=$('#listenBtn'),note=$('#voiceNote'),synth=window.speechSynthesis;
-  function ptVoice(){
-    if(!synth)return null;
-    var v=synth.getVoices();
-    return v.find(function(x){return /^pt[-_]BR/i.test(x.lang)})||v.find(function(x){return /^pt/i.test(x.lang)})||null;
-  }
-  if(!synth||!window.SpeechSynthesisUtterance){
-    btn.disabled=true;note.textContent='Este navegador não tem voz sintetizada. A amostra fica por escrito.';
-  }else{
-    btn.addEventListener('click',function(){
-      if(synth.speaking){synth.cancel();btn.classList.remove('speaking');return}
-      var u=new SpeechSynthesisUtterance($('#greetText').textContent);
-      var v=ptVoice();
-      if(v){u.voice=v;u.lang=v.lang}else{u.lang='pt-BR';note.textContent='Sem voz em português neste navegador; a amostra pode soar com sotaque.'}
-      u.rate=state.pace==='devagar'?0.82:0.98;
-      u.pitch=state.tone==='animada'?1.15:(state.tone==='carinhosa'?1.02:0.95);
-      u.onstart=function(){btn.classList.add('speaking')};
-      u.onend=u.onerror=function(){btn.classList.remove('speaking')};
-      synth.cancel();synth.speak(u);
-    });
-    if(synth.onvoiceschanged!==undefined){synth.onvoiceschanged=function(){}}
-  }
-  syncForm();render();
 })();
 </script>
 
